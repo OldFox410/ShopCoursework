@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ElectricalShop.Migrator": {
+      "commandName": "Project",
+      "commandLineArgs": "D:\\Development\\C#\\ElecticalShop\\Migrations D:\\Development\\C#\\ElecticalShop"
+    }
+  }
+}

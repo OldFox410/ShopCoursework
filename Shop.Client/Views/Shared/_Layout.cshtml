@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Учет и Отчеты Магазина</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            header nav a {
+                color: #fff;
+                text-decoration: none;
+                margin-left: 20px;
+                font-weight: bold;
+            }
+
+                header nav a:hover {
+                    text-decoration: underline;
+                    color: #1abc9c;
+                }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Единый стиль для всех таблиц */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+            .data-table th, .data-table td {
+                border: 1px solid #e1e1e1;
+                padding: 12px 15px;
+                text-align: left;
+            }
+
+            .data-table th {
+                background-color: #f4f6f8;
+                color: #2c3e50;
+                font-weight: 600;
+            }
+
+            .data-table tr:hover {
+                background-color: #f8fafc;
+            }
+
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        input, select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>📦 Магазин - Отчеты</h2>
+        <nav>
+            <a asp-controller="Reports" asp-action="Index">Главная</a>
+            <a asp-controller="Reports" asp-action="Sales">Продажи</a>
+            <a asp-controller="Reports" asp-action="TechSales">Техника</a>
+            <a asp-controller="Reports" asp-action="Employees">Сотрудники</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

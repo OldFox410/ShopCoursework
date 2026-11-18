@@ -1,0 +1,9 @@
+CREATE TABLE Suppliers (
+    Id INT IDENTITY(1,1) NOT NULL,
+    CompanyName NVARCHAR(150) NOT NULL,
+    ContactPerson NVARCHAR(100) NULL,
+    Phone NVARCHAR(20) NOT NULL,
+    Email NVARCHAR(100) NULL,
+    Address NVARCHAR(250) NULL,
+    CONSTRAINT PK_Suppliers PRIMARY KEY (Id)
+);

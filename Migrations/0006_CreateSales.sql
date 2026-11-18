@@ -1,0 +1,10 @@
+CREATE TABLE Sales (
+    Id INT IDENTITY(1,1) NOT NULL,
+    EmployeeId INT NOT NULL,
+    SaleDate DATETIME2 NOT NULL CONSTRAINT DF_Sales_Date DEFAULT SYSDATETIME(),
+    TotalAmount DECIMAL(18, 2) NOT NULL CONSTRAINT DF_Sales_Total DEFAULT 0,
+    CONSTRAINT PK_Sales PRIMARY KEY (Id),
+    CONSTRAINT CK_Sales_Total CHECK (TotalAmount >= 0),
+    CONSTRAINT FK_Sales_Employees FOREIGN KEY (EmployeeId) 
+        REFERENCES Employees(Id)
+);

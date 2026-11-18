@@ -1,0 +1,36 @@
+﻿@using Shop.Client.Models
+@model SalesReportModel
+
+<h2>Отчет по проданным товарам</h2>
+
+<form method="get">
+    <input type="number" name="MinPrice" placeholder="Мин. цена" value="@Model.Filter.MinPrice" />
+    <input type="date" name="StartDate" value="@Model.Filter.StartDate?.ToString("yyyy-MM-dd")" />
+    <button type="submit">Фильтровать</button>
+</form>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Артикул</th>
+            <th>Кол-во</th>
+            <th>Цена продажи</th>
+            <th>Итого</th>
+            <th>Дата</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td><code>@item.Article</code></td>
+                <td>@item.Quantity</td>
+                <td>@item.PriceAtSale.ToString("C")</td>
+                <td><strong>@item.TotalCost.ToString("C")</strong></td>
+                <td>@item.SaleDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
