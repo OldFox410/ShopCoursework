@@ -6,11 +6,21 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        string migrationsPath = args.Length > 0 ? args[0] : throw new ArgumentException("Migration path is not provided.");
-        string configPath = args.Length > 1 ? args[1] : throw new ArgumentException("Config path is not provided.");
+        string rawMigrationsPath = args.Length > 0 ? args[0] : throw new ArgumentException("Migration path is not provided.");
+        string rawConfigPath = args.Length > 1 ? args[1] : throw new ArgumentException("Config path is not provided.");
+
+        string workingDir = Directory.GetCurrentDirectory(); ;
+
+        string migrationsPath = Path.IsPathRooted(rawMigrationsPath)
+            ? rawMigrationsPath
+            : Path.Combine(workingDir, rawMigrationsPath);
+
+        string configDirectory = Path.IsPathRooted(rawConfigPath)
+            ? rawConfigPath
+            : Path.Combine(workingDir, rawConfigPath);
 
         IConfiguration config = new ConfigurationBuilder()
-            .SetBasePath(configPath)
+            .SetBasePath(configDirectory)
             .AddJsonFile("appsettings.json", optional: false)
             .Build();
 
