@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Shop.Application.Queries;
 
-public abstract class DataBaseQuery<TEntity, TDto, TFilter>
+public abstract class DataBaseQuery<TDto, TFilter>
 {
     protected string _connectionString;
     protected abstract string _queryString { get; }

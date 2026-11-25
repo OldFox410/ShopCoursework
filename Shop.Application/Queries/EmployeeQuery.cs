@@ -5,7 +5,7 @@ using Shop.Domain.Entities;
 
 namespace Shop.Application.Queries;
 
-public class EmployeeQuery : DataBaseQuery<Employee, EmployeeDto, EmployeeFilter>
+public class EmployeeQuery : DataBaseQuery<EmployeeDto, EmployeeFilter>
 {
     protected override string _queryString => @"
             SELECT Id, LastName, FirstName, MiddleName, Position, Phone, HireDate, HasChildren

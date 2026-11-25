@@ -5,7 +5,7 @@ using Shop.Domain.Entities;
 
 namespace Shop.Application.Queries;
 
-public class TechSalesQuery : DataBaseQuery<Sale, TechSalesStatDto, TechSalesStatFilter>
+public class TechSalesQuery : DataBaseQuery<TechSalesStatDto, TechSalesStatFilter>
 {
     protected override string _queryString => @"
             SELECT 
